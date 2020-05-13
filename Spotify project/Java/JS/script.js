@@ -2,7 +2,7 @@
 var artist_names = [];
 var artist_pictures = [];
 var artist_origin = [];
-d3.csv("https://raw.githubusercontent.com/luisjosemirandag/luisjosemirandag.github.io/master/Spotify%20project/Mejores%205%20artistas.csv").then(function(data){
+d3.csv("Spotify project/Mejores 5 artistas.csv").then(function(data){
   for (f = 0; f < 5 ; f ++){
     artist_names.push(data[f].Artist_Name)
     document.getElementById("artist_nm_"+f).innerHTML = artist_names[f];
@@ -87,7 +87,7 @@ artist_sign = [{sign:"Aries",url:"<img src='https://upload.wikimedia.org/wikiped
   {sign:"Aquarius",url:"<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Aquarius.svg/1280px-Aquarius.svg.png' class='img-thumbnail'>",plural:"aquariuses"},
   {sign:"Pisces",url:"<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Pisces.svg/823px-Pisces.svg.png' class='img-thumbnail'>",plural:"pisces"}]
 
-d3.csv("https://raw.githubusercontent.com/luisjosemirandag/luisjosemirandag.github.io/master/Spotify%20project/sign_age_top.csv").then(function(data){
+d3.csv("Spotify project/sign_age_top.csv").then(function(data){
   for (i=0;i<12;i++){
     if (data[0].artist_mode_zodiac == artist_sign[i].sign){
       document.getElementById("sign_zodiac").innerHTML = artist_sign[i].url;
@@ -99,7 +99,7 @@ d3.csv("https://raw.githubusercontent.com/luisjosemirandag/luisjosemirandag.gith
   } 
 });
 
-d3.csv("https://raw.githubusercontent.com/luisjosemirandag/luisjosemirandag.github.io/master/Spotify%20project/top_hour_times.csv").then(function(data){
+d3.csv("Spotify project/top_hour_times.csv").then(function(data){
   data.forEach(function(d){
     d.count = +d.count
   });
