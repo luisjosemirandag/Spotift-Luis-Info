@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="Spotify project/Java/CSS/styles.css">
+  <link rel="icon" href="Spotify project/Java/Images/circle-cropped.png" sizes="32x32" type="image/png">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.js"></script>
+  <title>Luis' Spotify info</title>
+</head>
+<body>
+  <script src="Spotify project/Java/JS/script.js"></script>
+  <div id="title_div">
+  <div class="container" id="container_title">
+    <div class="row" id="title">
+      <div class="title">
+        This is what I've been hearing on Spotify
+        <div>This is what I've been hearing on Spotify</div>
+        <div>This is what I've been hearing on Spotify</div>
+        <div>This is what I've been hearing on Spotify</div>
+        <div>This is what I've been hearing on Spotify</div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="container">
+    <div class="row" id="intro">
+    <h2>I've been meaning to start a programming project in this COVID-19 quarantine,
+    so I started to develope a Python code that connects to the Spotify API for
+    Developers and downloads the user's information I want. Also, I started to
+    do some research about webscrapping to get artists' fun facts.<br>Enjoy!</br></h2>
+  </div>
+  </div>
+  <div class="container">
+  <div class="row" id ="out_of">
+    <p class="title-graph" >Out of all the artist I've listened in this date range, these are the 5 artist that I've heard the most:</p>
+  </div>
+  </div>
+  <div class="container">
+    <div class="row" id ="artist_and_px">
+      <div class="col-sm" id="col-sm_1">
+        <div id="artist_px_0">
+          artist_pictures
+        </div>
+        <div id="artist_nm_0">
+          <p class="artist_name">artist_names</p>
+        </div>
+    </div>
+      <div class="col-sm" id="col-sm_2">
+        <div id="artist_px_1">
+          artist_pictures
+        </div>
+        <div id="artist_nm_1">
+          <p class="artist_name">artist_names</p>
+        </div>
+      </div>
+      <div class="col-sm" id="col-sm_3">
+        <div id="artist_px_2">
+          artist_pictures
+        </div>
+        <div id="artist_nm_2">
+          <p class="artist_name">artist_names</p>
+        </div>
+      </div>
+      <div class="col-sm" id="col-sm_4">
+        <div id="artist_px_3">
+          artist_pictures
+        </div>
+        <div id="artist_nm_3">
+          <p class="artist_name">artist_names</p>
+        </div>
+      </div>
+      <div class="col-sm" id="col-sm_5">
+        <div id="artist_px_4">
+          artist_pictures
+        </div>
+        <div id="artist_nm_4">
+          <p class="artist_name">artist_names</p>
+        </div>
+      </div> 
+    </div>
+    <div class= row>
+        <div class="container" id= "there_are">
+        <p class="title-graph" id= "these_are">These are the places where my top 5 artists were born:</p>
+      </div>
+  </div>
+  </div>
+    <div class="container" id = "mapContainer">
+        <svg id = "map" viewBox="0 0 750 550" preserveAspectRatio="xMidYMid"></svg>
+    </div>
+    <div class="container" id="sign_age_ct">
+      <div class="row" id="sign_age_row">
+        <div class="col" id="col-sm-sign" data-aos="fade-up" data-aos-duration="500">
+          <p id="sign-explanation"></p>
+          <div class="row" id=sig_px>
+            <div class="col" id="sign_zodiac">
+          </div>
+          <div class="col" id="artist_sign_px">
+          </div>
+        </div>
+        </div>
+        <div class="col" id="col-sm-age" data-aos="fade-up" data-aos-duration="500">
+          <p id="age-explanation">I'm probably into millennial artists because the average age of the ones I listen to the most is</p>
+          <div class="col" id="artist_age_nm">
+            <p id="age_numbers"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="Spotify project/Java/JS/script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>
+</html>
