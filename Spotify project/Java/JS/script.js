@@ -53,7 +53,14 @@ d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json").then(f
   step();
   function step() {
     if (++i >= 5) i = 0
-    title.text(artist_names[i]+" - "+countries_wt[indexes[i]].properties.name).style("fill","white")
+    countries_title = countries_wt[indexes[i]].properties.name
+    if (countries_title=="United States of America"){
+      countries_title="United States"
+    }
+    else{
+      countries_title = countries_wt[indexes[i]].properties.name
+    }
+    title.text(artist_names[i]+" - "+countries_title).style("fill","white")
     title.style("font-size",20)
     title.style("text-shadow","-1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000")
     country.transition().style("fill", function(d, j) { return j === indexes[i] ? "#033f03" : "#80cc86"; });
