@@ -5,15 +5,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
   <link rel="stylesheet" href="Spotify project/Java/CSS/styles.css">
   <link rel="icon" href="Spotify project/Java/Images/circle-cropped.png" sizes="32x32" type="image/png">
+  <link rel="stylesheet" href="C:\Users\l.miranda.gonzalez\Desktop\FileZilla\Projects\Spotify project\Java\CSS\styles.css">
+  <link rel="icon" href="C:\Users\l.miranda.gonzalez\Desktop\FileZilla\Projects\Spotify project\Java\Images\circle-cropped.png" sizes="32x32" type="image/png">
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.js"></script>
+  <script src="https://unpkg.com/browse/graph-scroll@1.0.2/graph-scroll.js"></script>
   <title>Luis' Spotify info</title>
 </head>
 <body>
@@ -114,6 +115,95 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="container" id="fav_song_ct" data-aos="fade-up" data-aos-duration="900">
+      <div class="row">
+        <p id="fav_songs_exp">These are my 5 favorite songs from this period</p>
+      </div>
+      <div class="row" id="fav_song_rw">
+        <div class="col-sm" id="fav_song_0">
+          <div id="info_pic_song_0">
+          </div>          
+          <div id="info_song_0">
+          </div>
+          <div id="info_art_song_0">
+          </div>
+        </div>
+        <div class="col-sm" id="fav_song_1">
+          <div id="info_pic_song_1">
+          </div>           
+          <div id="info_song_1">
+          </div>
+          <div id="info_art_song_1">
+          </div>
+        </div>
+        <div class="col-sm" id="fav_song_2">
+          <div id="info_pic_song_2">
+          </div>            
+          <div id="info_song_2"> 
+          </div>
+          <div id="info_art_song_2">
+          </div>
+        </div>
+        <div class="col-sm" id="fav_song_3">
+          <div id="info_pic_song_3">
+          </div>          
+          <div id="info_song_3">
+          </div>
+          <div id="info_art_song_3">
+          </div>
+        </div>
+        <div class="col-sm" id="fav_song_4">
+          <div id="info_pic_song_4">
+          </div>            
+          <div id="info_song_4">
+          </div>
+          <div id="info_art_song_4">
+          </div>
+        </div>
+      </div>
+      <br></br>
+    </div>
+    <div class="container" id="alb_dur_gen" data-aos="fade-up" data-aos-duration="1200">
+      <div class="row" id="alb_dur_gen_rw">
+      <div class="col" id="album_col">
+        <div class="row" id="alb_rw"><p id="alb_exp">My most listened album</p></div>
+        <div id="album_px"></div>
+        <div id="album_name"></div>
+        <div id="alb_artist"></div>
+        </div>
+      <div class="col" id="dur_col">
+        <div class="row" id="dur_rw"><p id="dur_exp">I've listened to</p></div>
+        <div id="dur_hours"></div>
+        <p id="hours">hours of music</p>
+      </div>
+      <div class="col" id="genre_col">
+        <div class="row" id="genre_rw"><p id="genre_exp">My top 5 genres</p></div>
+        <div id="genres"></div>
+      </div>
+      </div>
+    </div>
+    <div class="container" id="gr_dance_pop" data-aos="fade-up" data-aos-duration="1200">
+      <div class="row" id="gr_dance_pop_rw">
+        <div class="col" id="popularity_artist_col">
+          <p id="popularity"></p>
+          <p id="pop_exp">of the artists I've listened to are popular according to Spotify [1]</p>
+        </div>
+        <div class="col" id="grammys_col">
+          <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Grammy_Award_icon.svg/648px-Grammy_Award_icon.svg.png' class='img-thumbnail' id="grammy_px"></img>
+          <p id="grammy_text"></p>
+        </div>
+        <div class="col" id="danceability_col">
+          <p id="dance_perc"></p>
+          <p id="dance_exp">of the songs I've listened to are danceable according to Spotify [2]</p>
+        </div>
+        </div>
+      </div>
+    <div class="container" id="hour_line_ct" data-aos="fade-up" data-aos-duration="800">
+      <div class="row">
+        <p id="chart_hours">According to the graphic below I tend to listen to music at night, specifically at 8pm</p>
+       </div>
+      <svg id="hour_line_svg"></svg>
     </div>
     <script src="Spotify project/Java/JS/script.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
