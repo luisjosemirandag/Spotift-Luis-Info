@@ -25,7 +25,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    color:rgb(128, 204, 134);
+    color:#4EE926;
     pointer-events: none;
   }
   
@@ -121,14 +121,16 @@ body {
 #intro {
     background: linear-gradient(to top, rgb(15, 15, 15), rgb(34, 34, 34));
 }
+
 #out_of{
-    background-color:rgb(128, 204, 134);
+    background-color:#19F69B;
     font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 }
 
 #artist_and_px {
-    background-color:rgb(128, 204, 134);
+    background-color:#19F69B;
 }
+
 h1 {
     color:rgb(128, 204, 134);
     font-family: 'Helvetica', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
@@ -211,7 +213,7 @@ svg {
 
 #there_are {
     position: relative;
-    background: rgba(173, 173, 173, 0.842);
+    background:#f0509bfa;
 }
 
 #these_are {
@@ -226,16 +228,16 @@ svg {
 
 #mapContainer {
     position: relative;
-    background: rgba(173, 173, 173, 0.842);
+    background: #f0509bfa;
     border: 0cm;
 }
 
 #col-sm-sign {
-    background-color:rgb(128, 204, 134);
+    background-color:#748BF4;
 }
 
 #col-sm-age {
-    background: linear-gradient(to top, rgb(15, 15, 15), rgb(34, 34, 34));
+    background: #aa80cc;
 }
 
 #sign-explanation{
@@ -247,7 +249,7 @@ svg {
 }
 
 #age-explanation{
-    color: rgb(224, 224, 224);
+    color: azure;
     font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     margin-top: 3%;
     font-size: 160%;
@@ -273,32 +275,271 @@ svg {
 
 #age_numbers {
     font-size: 1000%;
+    color: azure;
+    text-align: center;
+}
+
+#hour_line_svg {
+    width: 100%;
+    height: 100%;
+    margin-left: 0;
+}
+
+#hour_line_ct {
+    position: relative;
+    background: linear-gradient(to top, rgb(15, 15, 15), rgb(34, 34, 34));
+    border: 0cm;
+}
+
+#chart_hours{
     color: rgb(224, 224, 224);
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-size: 160%;
+    text-align:center;
+    margin-left: 6%;
+    margin-top: 2%;
+}
+
+#fav_song_rw{
+    background-color:#19F69B;
+    margin-top: 2%;
+}
+
+#info_song_0 {
+    color: rgb(0, 0, 0); 
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size: 150%;
+}
+
+#info_song_1 {
+    color: rgb(0, 0, 0); 
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size: 150%;
+}
+
+#info_song_2 {
+    color: rgb(0, 0, 0); 
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size: 150%;
+}
+
+#info_song_3 {
+    color: rgb(0, 0, 0); 
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size: 150%;
+}
+
+#info_song_4 {
+    color: rgb(0, 0, 0); 
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size: 150%;
+}
+
+#info_art_song_0 {
+    color: rgb(0, 0, 0); 
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size: 150%;
+}
+
+#info_art_song_1 {
+    color: rgb(0, 0, 0); 
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size: 150%;
+}
+
+#info_art_song_2 {
+    color: rgb(0, 0, 0); 
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size: 150%;
+}
+
+#info_art_song_3 {
+    color: rgb(0, 0, 0); 
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size: 150%;
+}
+
+#info_art_song_4 {
+    color: rgb(0, 0, 0); 
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size: 150%;
+}
+
+#fav_songs_exp {
+    color: rgb(0, 0, 0); 
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-size: 200%;
+    margin-left: 5%;
+    text-align:left;
+    margin-top: 2%;
+}
+
+#fav_song_ct{
+    background-color:#19F69B;
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+}
+
+#album_col{
+    background-color:#748BF4;
+}
+
+#album_name {
+    color: rgb(0, 0, 0); 
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size: 150%;
+}
+
+#alb_artist {
+    color: rgb(0, 0, 0); 
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size: 150%;
+}
+
+#alb_exp{
+    text-align: center;
+    color: rgb(22, 22, 22);
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    margin-left: 15%;
+    margin-top: 2%;
+    font-size: 180%;
+}
+
+#album_px{
+    margin-left: 20%;
+}
+
+#dur_col{
+    background: #aa80cc;
+}
+
+#dur_exp{
+    color: rgb(22, 22, 22);
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    margin-top: 2%;
+    margin-left: 26%;
+    font-size: 180%;
+    text-align: center;
+}
+
+#dur_hours{
+    margin-top: -10%;
+    font-size: 1000%;
+    color: rgb(22, 22, 22);
+    text-align: center;
+}
+
+#hours{
+    color: rgb(22, 22, 22);
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    margin-top: 2%;
+    font-size: 200%;
+    text-align: center;
+}
+
+#genre_col{
+    position: relative;
+    background: linear-gradient(to top, rgb(15, 15, 15), rgb(34, 34, 34));
+    border: 0cm;
+}
+
+#genre_exp{
+    color: rgb(224, 224, 224);
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    margin-top: 4%;
+    margin-left: 26%;
+    font-size: 180%;
+    text-align: center;
+}
+
+#genres{
+    margin-top: 2%;
+    font-size: 450%;
+    color: rgb(224, 224, 224);
+    text-align: center;
+    overflow: hidden;
+}
+
+#grammys_col{
+    background:#f0509bfa;
+}
+
+#grammy_text{
+    color: rgb(224, 224, 224);
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    margin-top: 4%;
+    font-size: 140%;
+    text-align: center;
+}
+
+#grammy_px{
+    margin-top: 5%;
+    width:50%;
+    height:55%;
+    margin-left: 23%;
+}
+
+#popularity_artist_col{
+    background-color: #19F69B;
+}
+
+#popularity{
+    margin-top: 5%;
+    font-size: 1000%;
+    color: rgb(22, 22, 22);
+    text-align: center;
+}
+
+#pop_exp{
+    color: rgb(22, 22, 22);
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    margin-top: -5%;
+    margin-left: 3%;
+    margin-right: 3%;
+    font-size: 160%;
+    text-align: center;
+}
+
+
+#danceability_col{
+    background-color: #15ABB0;
+}
+
+#dance_perc{
+    margin-top: 5%;
+    font-size: 1000%;
+    color: rgb(22, 22, 22);
+    text-align: center;
+}
+
+#dance_exp{
+    color: rgb(22, 22, 22);
+    font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    margin-top: -5%;
+    margin-left: 3%;
+    margin-right: 3%;
+    font-size: 160%;
     text-align: center;
 }
 
 /* To define in cellphones */
 @media only screen and (max-width: 500px) {
-    body {
-        background-color: black;
-        background-size: cover;
-    }
-    #title {
-        background-color: black;
-    }
 
-    #intro {
-        background: linear-gradient(to top, rgb(15, 15, 15), rgb(34, 34, 34));
-    }
     #out_of{
-        background-color:rgb(128, 204, 134);
-        font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
         border: 0ch;
     }
     
-    #artist_and_px {
-        background-color:rgb(128, 204, 134);
-    }
 
     .title {
         position: relative;
@@ -313,14 +554,12 @@ svg {
     }
     
     h1 {
-        color:rgb(128, 204, 134);
         font-family: 'Helvetica', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
         font-size: 200%;
         text-align:center;
     }
 
     h2 {
-        color: rgb(224, 224, 224); ; 
         font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
         font-size: 100%;
         text-align:center;
@@ -328,7 +567,6 @@ svg {
     }
 
     p.title-graph {
-        color: rgb(0, 0, 0); 
         font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
         font-size: 100%;
         text-align:center;
@@ -337,47 +575,29 @@ svg {
     }
 
     #artist_nm_0 {
-        color: rgb(0, 0, 0); 
-        font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-        text-align: left;
-        font-size: 50%;
-        margin-left: 28%;
-    }
-
-    #artist_nm_0 {
-        color: rgb(0, 0, 0); 
         font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
         text-align: center;
         font-size: 75%;
     }
     #artist_nm_1 {
-        color: rgb(0, 0, 0); 
         font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
         text-align: center;
         font-size: 75%;
     }
     #artist_nm_2 {
-        color: rgb(0, 0, 0); 
         font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
         text-align: center;
         font-size: 75%;
     }
     #artist_nm_3 {
-        color: rgb(0, 0, 0); 
         font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
         text-align: center;
         font-size: 75%;
     }
     #artist_nm_4 {
-        color: rgb(0, 0, 0); 
         font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
         text-align: center;
         font-size: 75%;
-    }
-
-    .img-thumbnail {
-        background:transparent;
-        border: transparent;
     }
     .col-sm {
         width: 33%;
@@ -385,35 +605,20 @@ svg {
     #col-sm_1{
         margin-left: 18%;
     }
-
     #there_are {
         position: relative;
-        background: rgba(173, 173, 173, 0.842);
         border: 0cm;
     }
     #mapcontainer {
         position: relative;
-        background: rgba(173, 173, 173, 0.842);
         border: 0cm;
     }
-    
-    .countries:hover {
-        fill:rgb(3, 63, 3)
-    }
-    
     #map {
         width: 100%;
         height: 100%;
         margin-left: -16%;
-    }
-
-
-    #col-sm-sign {
-        background-color: #80cc86;
-    }
-    
+    }  
     #sign-explanation{
-        color: rgb(0, 0, 0); 
         font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
         font-size: 90%;
         text-align:center;
@@ -421,10 +626,7 @@ svg {
         margin-right: -3%;
         letter-spacing: -1.2px;
     }
-
-    
     #age-explanation{
-        color: rgb(224, 224, 224); 
         font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
         font-size: 90%;
         text-align:center;
@@ -432,13 +634,11 @@ svg {
         margin-right: -1%;
         letter-spacing: -1.2px;
     }
-
     #sign_zodiac.col{
         background:transparent;
         border: transparent;
         margin: -8%;
     }
-
     #artist_sign_px.col{
         background:transparent;
         border: transparent;
@@ -454,13 +654,183 @@ svg {
     #age_numbers {
         font-size: 400%;
         margin-top: -20%;
-        color: rgb(224, 224, 224);
         text-align: center;
     }   
     #artist_age_nm{
         background:transparent;
         border: transparent;
     }
+    #chart_hours{
+        font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+        font-size: 100%;
+        text-align:center;
+        margin-left: 3%;
+    }
+    #info_song_0 {
+        font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+        text-align: center;
+        font-size: 75%;
+    }
+    #info_song_1 {
+        font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+        text-align: center;
+        font-size: 75%;
+    }
+    #info_song_2 {
+        font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+        text-align: center;
+        font-size: 75%;
+    }
+    #info_song_3 {
+        font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+        text-align: center;
+        font-size: 75%;
+    }
+    #info_song_4 {
+        font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+        text-align: center;
+        font-size: 75%;
+    }
+    #info_art_song_0 {
+        font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+        text-align: center;
+        font-size: 75%;
+    }
+    #info_art_song_1 {
+        font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+        text-align: center;
+        font-size: 75%;
+    }
+    #info_art_song_2 {
+        font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+        text-align: center;
+        font-size: 75%;
+    }
+    #info_art_song_3 {
+        font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+        text-align: center;
+        font-size: 75%;
+    }
+    #info_art_song_4 {
+        font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+        text-align: center;
+        font-size: 75%;
+    }
+    #fav_songs_exp{
+        font-family: 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+        font-size: 100%;
+        text-align:center;
+        margin-left: 2%;
+        letter-spacing: -1px;
+    }
+    #fav_song_0{
+        margin-left: 18%; 
+    }
+
+    #album_col{
+        width:33%;
+    }
+    
+    #album_name {
+        font-size: 75%;
+        margin-left: 0%;
+    }
+    
+    #alb_artist {
+        font-size: 75%;
+    }
+    
+    #alb_exp{
+        margin-left: 0%;
+        margin-top: 2%;
+        font-size: 100%;
+    }
+    
+    #album_px{
+        margin-left: 0%;
+    }
+    
+    #dur_col{
+        width:33%;
+    }
+    
+    #dur_exp{
+        margin-left: 10%;
+        margin-top: 12%;
+        font-size: 100%;
+    }
+    
+    #dur_hours{
+        font-size: 400%;
+    }
+    
+    #hours{
+        margin-left: 5%;
+        margin-top: 2%;
+        font-size: 100%;
+    }
+    
+    #genre_col{
+        width:34%;
+    }
+    
+    #genre_exp{
+        margin-left: 10%;
+        margin-top: 12%;
+        font-size: 100%;
+    }
+    
+    #genres{
+        margin-top:30%;
+        font-size: 140%;
+    }
+    
+    
+    #popularity_artist_col{
+        width:33%;
+    }
+    
+    #popularity {
+        font-size: 350%;
+        margin-left: 0%;
+    }
+    
+    #pop_exp{
+        margin-left: 0%;
+        margin-top: 2%;
+        font-size: 75%;
+    }
+    
+    #grammys_col{
+        width:33%;
+    }
+    
+    #grammy_px{
+        width: 50%;
+        height: 40%;
+    }
+    
+    #grammy_text{
+        font-size: 75%;
+        margin-top: 10%;
+    }
+    
+    #danceability_col{
+        width:34%;
+    }
+    
+    #dance_perc{
+        font-size: 350%;
+        margin-left: 0%;
+    }
+    
+    #dance_exp{
+        margin-left: 0%;
+        margin-top: 2%;
+        font-size: 75%;
+    }
+
+
 
     @media only screen and (max-width: 370px) {
 
@@ -477,6 +847,21 @@ svg {
         #age_numbers {
             margin-top: -25%;
         }   
+
+        #dance_perc{
+            font-size: 320%;
+            margin-left: 0%;
+        }
+            
+        #grammy_px{
+            width: 50%;
+            height: 35%;
+        }
+        
+        #popularity {
+            font-size: 320%;
+            margin-left: 0%;
+        }
     }
     @media only screen and (max-width: 320px) {
 
@@ -494,6 +879,65 @@ svg {
 
         #age_numbers {
             margin-top: -14%;
-        }   
+        }
+        
+        #dur_exp{
+            margin-top: 12%;
+            font-size: 95%;
+        }
+        
+        #dur_hours{
+            font-size: 400%;
+        }
+        
+        #hours{
+            margin-left: 5%;
+            margin-top: 2%;
+            font-size: 100%;
+        }
+
+        #genre_exp{
+            margin-left: 5%;
+            margin-top: 12%;
+            font-size: 90%;
+        }
+        
+        #genres{
+            margin-top:40%;
+            font-size: 113%;
+        }
+        #dance_perc{
+            font-size: 300%;
+            margin-left: 0%;
+        }
+        
+        #popularity {
+            font-size: 300%;
+            margin-left: 0%;
+        }
+
+        #grammy_px{
+            width: 50%;
+            height: 40%;
+        }
+        
+        #grammy_text{
+            font-size: 65%;
+            margin-top: 20%;
+            margin-left: -5%;
+            margin-right: -5%;
+            margin-bottom: 30%;
+        }
+
+        #dance_exp{
+            margin-left: 0%;
+            margin-top: 2%;
+            font-size: 65%;
+        }
+        #pop_exp{
+            margin-left: 0%;
+            margin-top: 2%;
+            font-size: 65%;
+        }
     }
 }
