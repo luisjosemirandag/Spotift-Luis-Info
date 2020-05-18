@@ -203,6 +203,16 @@
        </div>
       <svg id="hour_line_svg"></svg>
     </div>
+    <div class="container" id="references_ct">
+      <p id="reference_title">References</p>
+      <p id="references_1" class="references_class">You may find all the code for this project on <a href="https://github.com/luisjosemirandag/spotify-luis-insights" target="_blank">Gitub</a></p>
+      <p id="references_2" class="references_class">The data was taken by doing some webscrapping. The data from artists and bands such as their birthdays and their birthplaces was taken from Wikipedia.
+        The data from Spotify was taken from the <a href="https://developer.spotify.com/" target="_blank">Spotify for Developers</a> page. Also, the data from the Grammy Awards was taking by doing webscrapping over the official <a href="https://www.grammy.com/recording-academy" target="_blank">Grammy Awards page.</a></p>
+      <p class="references_class">The date range of the data is from 03/14/2020 to 05/14/2020. All the transformations of the data were done on Python, using libraries like pandas and statistics. For the visualization, I used D3.js to give life to this page.</p>
+      <p id="reference_popularity" class="references_class"><a href="#gr_dance_pop">[1]</a> According to the <a href="https://developer.spotify.com/documentation/web-api/reference/artists/get-artist/" target="_blank">Spotify references' documents</a> about the popularity of the artists: "The value will be between 0 and 100, with 100 being the most popular. The artist’s popularity is calculated from the popularity of all the artist’s tracks". For this particular page, I took the percentage of artists with a popularity greater than 80.</p>
+      <p id="reference_danceability" class="references_class"><a href="#gr_dance_pop">[2]</a> According to the <a href="https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/" target="_blank">Spotify references' documents</a> about the track's audio features: "Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable." For this particular page, I took the percentage of tracks with a danceability number greater than 0.6.</p>
+      <p class="references_class">Add me on LinkedIn: <a href="https://www.linkedin.com/in/luisjosemirandag" target="_blank">Luis José Miranda</a></p>
+    </div>
     <script src="Spotify project/Java/JS/script.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
