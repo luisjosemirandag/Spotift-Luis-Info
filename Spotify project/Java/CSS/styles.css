@@ -533,6 +533,22 @@ svg {
     text-align: center;
 }
 
+#references_ct{
+    background: linear-gradient(to top, rgb(15, 15, 15), rgb(34, 34, 34));
+    color:azure;
+    font-size: 80%;
+    text-align: justify;
+}
+
+.references_class{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#reference_title{
+    font-size: 150%;
+}
+
 /* To define in cellphones */
 @media only screen and (max-width: 500px) {
 
@@ -828,6 +844,18 @@ svg {
         margin-left: 0%;
         margin-top: 2%;
         font-size: 75%;
+    }
+    #references_ct{
+        font-size: 50%;
+    }
+    
+    .references_class{
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    
+    #reference_title{
+        font-size: 100%;
     }
 
 
