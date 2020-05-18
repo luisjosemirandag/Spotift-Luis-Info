@@ -6,15 +6,20 @@ from datetime import date
 from unicodedata import normalize
 import requests
 # Pandas read csv
-artist_info_csv = pd.read_csv('Spotify project/Spotify info/Artists/scrobber_info_spotify_artists.csv',encoding = "ISO-8859-1")
+new_artist_id = pd.read_csv('Projects/Spotify project/New data/New_artists.csv')
+artists_spotify = pd.read_csv('Projects/Spotify project/Spotify info/Artists/scrobber_info_spotify_artists.csv',encoding = "ISO-8859-1")
 
 # Separate the values in variables
-artist = artist_info_csv.iloc[:,1]
-ids = artist_info_csv.iloc[:,0]
+ids = new_artist_id.iloc[:,0]
+ids_list = [ids[x] for x in range(0,len(ids))]
+artist_id = artists_spotify.iloc[:,0]
+artist_id_list = [artist_id[x] for x in range(0,len(artist_id))]
+artist_name = artists_spotify.iloc[:,1]
+artist_name_list = [artist_name[x] for x in range(0,len(artist_name))]
+artist_dict = [{'id':artist_id_list[x], 'name':artist_name_list[x]} for x in range(0,len(artist_id_list)) if artist_id_list[x] in ids_list]
+new_artist_id = [artist_dict[x]['id'] for x in range(0,len(artist_dict))]
+artist_list = [artist_dict[x]['name'] for x in range(0,len(artist_dict))]
 
-# Insert the column artust into a list so it's easier to process
-artist_list = [artist[x] for x in range(0,len(artist))]
-id_list = [ids[x] for x in range(0,len(ids))]
 # Clean the ´ out of the input so it can be looked up in Wikipedia
 artist_list_wiki = [normalize("NFD",artist_list[x]).encode("ascii","ignore").decode("ascii").title() for x in range(0,len(artist_list))]
 # Number of artists
@@ -198,8 +203,8 @@ for b in range(0,artist_length):
 
     # to insert everything in a csv file
     if band_singer == 'singer':
-        a = open('Spotify project/Web artists info/artist_info_singers.csv', 'a')
-        a.write(str(id_list[b]) + "," + str(artist_list[b]) + "," +
+        a = open('Projects/Spotify project/Web artists info/artist_info_singers.csv', 'a')
+        a.write(str(new_artist_id[b]) + "," + str(artist_list[b]) + "," +
         str(calculateAge(date(int(birthday_split[0]),int(birthday_split[1]),int(birthday_split[2])))) + "," +
         str(country) + "," +
         str(birthday) + "," +
@@ -210,56 +215,37 @@ for b in range(0,artist_length):
 
 
     # Now let's work for the bands:
-    if band_singer == 'band':
-        # Getting the all the text from the vcard on Wikipedia
-        members_raw = soup.find(class_="infobox vcard plainlist").get_text()
-        # Indexing the word 'members'
-        members_index = members_raw.index('Members') + 8
-        # Getting all the members
-        members_cut = members_raw[members_index:]
-        members_list = members_cut.split('\n')
-        # The main member should be the first one
-        main_member = members_list[0]
-        # Getting the data from Wikipedia
-        main_member_mod = main_member.replace(" ", "_")
-        url = str(links[0]) + main_member_mod
-        try:
-            page = urllib.request.urlopen(url)
-            soup = BeautifulSoup(page, "lxml")
-            birthday = soup.find(class_="bday").get_text()
-        except:
+    try:
+        if band_singer == 'band':
+            # Getting the all the text from the vcard on Wikipedia
+            members_raw = soup.find(class_="infobox vcard plainlist").get_text()
+            # Indexing the word 'members'
+            members_index = members_raw.index('Members') + 8
+            # Getting all the members
+            members_cut = members_raw[members_index:]
+            members_list = members_cut.split('\n')
+            # The main member should be the first one
+            main_member = members_list[0]
+            # Getting the data from Wikipedia
+            main_member_mod = main_member.replace(" ", "_")
+            url = str(links[0]) + main_member_mod
             try:
-        # Trying again but hardcoding singer because it could happen that it's an ambiguous search
-                url += '_(singer)'
                 page = urllib.request.urlopen(url)
                 soup = BeautifulSoup(page, "lxml")
                 birthday = soup.find(class_="bday").get_text()
             except:
-                birthday = 'NULL'
-        try:
-            #Let's get the origin out of a class named birthplace
-            origin = soup.find(class_="birthplace").get_text()
-            #Spitting the origin so we can get the city and the country in two different variables
-            origin_split = origin.split(", ")
-            country = origin_split[-1]
-            city = origin_split[0:-1]
-            city_fix = ''
-            # Also let's split the birthday so we can get the day, month and year separately
-            birthday_split = birthday.split("-")
-        except:
+                try:
+            # Trying again but hardcoding singer because it could happen that it's an ambiguous search
+                    url += '_(singer)'
+                    page = urllib.request.urlopen(url)
+                    soup = BeautifulSoup(page, "lxml")
+                    birthday = soup.find(class_="bday").get_text()
+                except:
+                    birthday = 'NULL'
             try:
-                # Some wikipages don't have the class birthplace, so we look for that info in the card
-                origin_raw = soup.find(class_="infobox vcard plainlist").get_text()
-                # Looking for the words that cover the origin and get their indexes
-                index_origin = origin_raw.find("(age") + 8
-                index_genre = origin_raw.find('Genre')
-                origin = origin_raw[index_origin:index_genre]
-                # Removing the extra characters
-                if origin[2] == ']':
-                    origin = origin[3:]
-                if origin[-1] == ']':
-                    origin = origin[:-3]
-                # Splitting the origin to separate the city and the country
+                #Let's get the origin out of a class named birthplace
+                origin = soup.find(class_="birthplace").get_text()
+                #Spitting the origin so we can get the city and the country in two different variables
                 origin_split = origin.split(", ")
                 country = origin_split[-1]
                 city = origin_split[0:-1]
@@ -267,76 +253,98 @@ for b in range(0,artist_length):
                 # Also let's split the birthday so we can get the day, month and year separately
                 birthday_split = birthday.split("-")
             except:
+                try:
+                    # Some wikipages don't have the class birthplace, so we look for that info in the card
+                    origin_raw = soup.find(class_="infobox vcard plainlist").get_text()
+                    # Looking for the words that cover the origin and get their indexes
+                    index_origin = origin_raw.find("(age") + 8
+                    index_genre = origin_raw.find('Genre')
+                    origin = origin_raw[index_origin:index_genre]
+                    # Removing the extra characters
+                    if origin[2] == ']':
+                        origin = origin[3:]
+                    if origin[-1] == ']':
+                        origin = origin[:-3]
+                    # Splitting the origin to separate the city and the country
+                    origin_split = origin.split(", ")
+                    country = origin_split[-1]
+                    city = origin_split[0:-1]
+                    city_fix = ''
+                    # Also let's split the birthday so we can get the day, month and year separately
+                    birthday_split = birthday.split("-")
+                except:
+                    continue
+                # Now let's move to the grammy's page
+            
+            url = str(links[1]) + str(artist_name_mod)
+            page = urllib.request.urlopen(url)
+            soup = BeautifulSoup(page, "lxml")
+            # If the artist is not found, then it does not have any nominations
+            try:
+                grammy_wins = soup.find(class_="group-artist-wins-noms field-group-div").get_text()
+                grammy_wins_split = grammy_wins.split("\n")
+                wins = int(grammy_wins_split[3])
+                nominations = int(grammy_wins_split[-4])
+            except:
+                wins = 0
+                nominations = 0
+            # This is a function that returns the zodiac sign
+            try:
+                def astrology(month,day):
+                    if month == 12:
+                        astro_sign = 'Sagittarius' if (day < 22) else 'Capricorn'
+                    elif month == 1:
+                        astro_sign = 'Capricorn' if (day < 20) else 'Aquarius'
+                    elif month == 2:
+                        astro_sign = 'Aquarius' if (day < 19) else 'Pisces'
+                    elif month == 3:
+                        astro_sign = 'Pisces' if (day < 21) else 'Aries'
+                    elif month == 4:
+                        astro_sign = 'Aries' if (day < 20) else 'Taurus'
+                    elif month == 5:
+                        astro_sign = 'Taurus' if (day < 21) else 'Geminis'
+                    elif month == 6:
+                        astro_sign = 'Gemini' if (day < 21) else 'Cancer'
+                    elif month == 7:
+                        astro_sign = 'Cancer' if (day < 23) else 'Leo'
+                    elif month == 8:
+                        astro_sign = 'Leo' if (day < 23) else 'Virgo'
+                    elif month == 9:
+                        astro_sign = 'Virgo' if (day < 23) else 'Libra'
+                    elif month == 10:
+                        astro_sign = 'Libra' if (day < 23) else 'Scorpio'
+                    elif month == 11:
+                        astro_sign = 'Scorpio' if (day < 22) else 'Sagittarius'
+                    return astro_sign
+            except:
                 continue
-            # Now let's move to the grammy's page
-        
-        url = str(links[1]) + str(artist_name_mod)
-        page = urllib.request.urlopen(url)
-        soup = BeautifulSoup(page, "lxml")
-        # If the artist is not found, then it does not have any nominations
-        try:
-            grammy_wins = soup.find(class_="group-artist-wins-noms field-group-div").get_text()
-            grammy_wins_split = grammy_wins.split("\n")
-            wins = int(grammy_wins_split[3])
-            nominations = int(grammy_wins_split[-4])
-        except:
-            wins = 0
-            nominations = 0
-        # This is a function that returns the zodiac sign
-        try:
-            def astrology(month,day):
-                if month == 12:
-                    astro_sign = 'Sagittarius' if (day < 22) else 'Capricorn'
-                elif month == 1:
-                    astro_sign = 'Capricorn' if (day < 20) else 'Aquarius'
-                elif month == 2:
-                    astro_sign = 'Aquarius' if (day < 19) else 'Pisces'
-                elif month == 3:
-                    astro_sign = 'Pisces' if (day < 21) else 'Aries'
-                elif month == 4:
-                    astro_sign = 'Aries' if (day < 20) else 'Taurus'
-                elif month == 5:
-                    astro_sign = 'Taurus' if (day < 21) else 'Geminis'
-                elif month == 6:
-                    astro_sign = 'Gemini' if (day < 21) else 'Cancer'
-                elif month == 7:
-                    astro_sign = 'Cancer' if (day < 23) else 'Leo'
-                elif month == 8:
-                    astro_sign = 'Leo' if (day < 23) else 'Virgo'
-                elif month == 9:
-                    astro_sign = 'Virgo' if (day < 23) else 'Libra'
-                elif month == 10:
-                    astro_sign = 'Libra' if (day < 23) else 'Scorpio'
-                elif month == 11:
-                    astro_sign = 'Scorpio' if (day < 22) else 'Sagittarius'
-                return astro_sign
-        except:
-            continue
-        
-        # This is a function that returns the age
-        try:
-            def calculateAge(dateofbirth):
-                today = date.today() 
-                age = today.year - dateofbirth.year - ((today.month, today.day) < (dateofbirth.month, dateofbirth.day)) 
-                return age
-        except:
-            continue
+            
+            # This is a function that returns the age
+            try:
+                def calculateAge(dateofbirth):
+                    today = date.today() 
+                    age = today.year - dateofbirth.year - ((today.month, today.day) < (dateofbirth.month, dateofbirth.day)) 
+                    return age
+            except:
+                continue
 
-        try:
-            age_of_the_artist = str(calculateAge(date(int(birthday_split[0]),int(birthday_split[1]),int(birthday_split[2]))))
-            astrology_of_the_artist = str(astrology(int(birthday_split[1]),int(birthday_split[2])))
-        except:
-            age_of_the_artist = 'NULL'
-            astrology_of_the_artist = 'NULL'
-        # to insert everything in a csv file
-    if band_singer == 'band':
-        a = open('Spotify project/Web artists info/artist_info_bands.csv', 'a')
-        a.write(str(id_list[b]) + "," + str(artist_list[b]) + "," +
-        str(main_member) + "," + 
-        age_of_the_artist + "," +
-        str(country) + "," +
-        str(birthday) + "," +
-        astrology_of_the_artist +","+
-        str(wins)+","+
-        str(nominations)+'\n')
-        a.close()
+            try:
+                age_of_the_artist = str(calculateAge(date(int(birthday_split[0]),int(birthday_split[1]),int(birthday_split[2]))))
+                astrology_of_the_artist = str(astrology(int(birthday_split[1]),int(birthday_split[2])))
+            except:
+                age_of_the_artist = 'NULL'
+                astrology_of_the_artist = 'NULL'
+            # to insert everything in a csv file
+        if band_singer == 'band':
+            a = open('Projects/Spotify project/Web artists info/artist_info_bands.csv', 'a')
+            a.write(str(new_artist_id[b]) + "," + str(artist_list[b]) + "," +
+            str(main_member) + "," + 
+            age_of_the_artist + "," +
+            str(country) + "," +
+            str(birthday) + "," +
+            astrology_of_the_artist +","+
+            str(wins)+","+
+            str(nominations)+'\n')
+            a.close()
+    except:
+        continue
